@@ -1,53 +1,39 @@
-// let usuario = prompt("Ingrese su nombre")
-// const FRASE = "Bienvenida/o"+ " " + usuario + " " + "a Trasnporte Solari"
-
-// alert(FRASE)
-// console.log(usuario)
-
-
-
-// function multiplicar (valorMinimo, cantidadKm){
-//     let multiplicar = valorMinimo * cantidadKm;
-//     return resultado;
-// }
-// function mostrarResultado (resultado){
-//     alert("Su viaje costará" + resultado)
-// }
-
-// function mostrarMenu (){
-//     let opcion= prompt (" Seleccione un destino,(ESC para salir) \n 1. 20km \n 2. 50km \n 3. 100km ")
-//     return opcion;
-// }
-
-// function cotizar(){
-//     let opcionSeleccionada = mostrarMenu()
-//     while(opcionSeleccionada!= "ESC"){
-//     if(opcionSeleccionada !== ""){
-//         alert("Este es el monto del viaje minimo")
-
-
-//         opcionSeleccionada= parseInt(opcionSeleccionada);
-//     }
-
-//     if (isNaN (opcionSeleccionada)){
-//         switch (opcionSeleccionada){
-
-//             case 1:
-//                 let resultadoMultiplicar = multiplicar(valorMinimo, cantidadKm);
-//                 const valorMinimo=500
-//                 mostrarResultado(resultadoMultiplicar);
-//                 break;
-//         }
-//     }
+function saludar(){
+    let frase=("¡Hola!" + " bienvenido a Nadiatour")
+    alert(frase)
     
-// }
-// }
-// opcionSeleccionada= mostrarMenu
-// cotizar()
-// multiplicar()
-
-
-let frutas= ["manzana","banana","pera"]
-{
-    console.log(frutas[3])
 }
+saludar()
+let usuario= prompt("Me dirias tu nombre")
+alert("Mucho gusto "  +  usuario)
+
+let finde = [
+    {nombre: 'Merlo',
+    dias: '3 dias',
+    precio: 23200},
+
+    {nombre: 'Iguazu',
+    dias: '4 Dias',
+    precio: 42800},
+
+    {nombre: 'Salta',
+    dias: '5 dias',
+    precio: 50500}
+]
+
+function mostrarOpciones(){
+    let mensaje= '¿Qué escapada te gustaria elegir?'
+    let contador= 1
+
+    for(let finde of finde){
+        mensaje += '\n ${contador}- ${finde.nombre} - ${finde.dias} - $ ${finde.precio}'
+        contador++
+    }
+
+    mensaje += '\n ${contador}- salir'
+
+    return mensaje
+
+}
+
+prompt (mostrarOpciones())
