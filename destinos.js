@@ -1,0 +1,11 @@
+let btnUno = document.getElementById("botonUno")
+let btnDos = document.getElementById("botonDos")
+let btnTres = document.getElementById("botonTres")
+let btnCuatro = document.getElementById("botonCuatro")
+let btnCinco = document.getElementById("botonCinco")
+
+btnUno.addEventListener("click", )
+btnDos.addEventListener()
+btnTres.addEventListener()
+btnCuatro.addEventListener()
+btnCinco.addEventListener()
