@@ -1,90 +1,78 @@
-let productos= [] ;
-let usuario;
+const form = document.getElementById('form');
+const nombre = document.getElementById('username');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const password2 = document.getElementById('password2');
 
-let formularioIdentificacion;
-let contenedorIdentificacion;
-let contenedorUsuario;
-let limpiarStorage;
+form.addEventListener('submit', e => {
+	e.preventDefault();
+	
+	checkInputs();
+});
 
-let formulario;
-let inputId;
-let inputNombre;
-let precioVenta;
-let paquetes;
-
-class producto {
-    constructor (id, nombre, precioVenta,cantidad) {
-        this.id= id;
-        this.nombre= nombre.toUpperCase();
-        this.precioVenta= precioVenta;
-        this.cantidad= cantidad;
-    }
+function checkInputs() {
+	const usuarioValue = nombre.value.trim();
+	const emailValue = email.value.trim();
+	const passwordValue = password.value.trim();
+	const password2Value = password2.value.trim();
+	
+	if(usuarioValue === '') {
+		setErrorFor(nombre, 'No puede dejar el usuairo en blanco');
+	} else {
+		setSuccessFor(nombre);
+	}
+	
+	if(emailValue === '') {
+		setErrorFor(email, 'No puede dejar el email en blanco');
+	} else if (!isEmail(emailValue)) {
+		setErrorFor(email, 'No ingreso un email válido');
+	} else {
+		setSuccessFor(email);
+	}
+	
+	if(passwordValue === '') {
+		setErrorFor(password, 'Password no debe ingresar en blanco.');
+	} else {
+		setSuccessFor(password);
+	}
+	
+	if(password2Value === '') {
+		setErrorFor(password2, 'Password2 no debe ngresar en blanco');
+	} else if(passwordValue !== password2Value) {
+		setErrorFor(password2, 'Passwords no coinciden');
+	} else{
+		setSuccessFor(password2);
+	}
 }
 
-
-
-
-
-const NOMBRE = document.getElementById("nombre");
-const EMAIL = document.getElementById("email");
-const DESTINO = document.getElementById("destino");
-const PASAJEROS = document.getElementById("cantidad-de-pasajeros");
-const BOTON = document.getElementById("btn-enviar");
-
-const CONTENEDOR = getElementById("contenedorUno")
-
-
-
-
-const listaPrductos = [
-    {
-        id: contenedorUno,
-        nombre:"saltaJujuy",
-        precioVenta:"55000",
-        cantidad: 5,
-    },
-    
-    {
-        id:contenedorDos,
-        nombre: "misiones",
-        precioVenta: "40000",
-        cantidad:5,
-    },
-    {
-        id:contenedorTres,
-        nombre:"mendoza",
-        precioVenta:"45000",
-        cantidad: 6,
-    },
-    {
-        id: contenedorCuatro,
-        nombre: "bariloche",
-        precioVenta: "65000",
-        cantidad: 10,
-    },
-    {
-        id: contenedorCinco,
-        nombre:"calafate",
-        precioVenta: "75000",
-        contidad: 8,
-    }
-]
-
-const contenedorProductos= document.getElementById("paquetes");
-
-
-
-
-
-
-
-
-
-
-
-
-
-let boton = document.getElementById("botonCotizar")
-boton.onclick=(multiplicar) => {
-    alert("Su viaje es" + multiplicar)
+function setErrorFor(input, message) {
+	const formControl = input.parentElement;
+	const small = formControl.querySelector('small');
+	formControl.className = 'form-control error';
+	small.innerText = message;
 }
+
+function setSuccessFor(input) {
+	const formControl = input.parentElement;
+	formControl.className = 'form-control success';
+}
+
+function isEmail(email) {
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+const open = document.getElementById('open');
+const modal_container = document.getElementById('modal-container');
+const close = document.getElementById('close');
+
+open.addEventListener('click', () => {
+modal_container.classList.add('show');  
+});
+
+close.addEventListener('click', () => {
+modal_container.classList.remove('show');
+});
+
+
+
+

@@ -1,11 +1,13 @@
-let btnUno = document.getElementById("botonUno")
-let btnDos = document.getElementById("botonDos")
-let btnTres = document.getElementById("botonTres")
-let btnCuatro = document.getElementById("botonCuatro")
-let btnCinco = document.getElementById("botonCinco")
+const btn1= document.querySelector('#btn1')
+btn1.addEventListener('click', ()=> {
+    swal.fire({
+        title:'¡Has reservado tu viaje con exito!',
+        Text: 'genial',
+        icon: 'success',
+        confirmButtonText:'cool'
 
-btnUno.addEventListener("click", )
-btnDos.addEventListener()
-btnTres.addEventListener()
-btnCuatro.addEventListener()
-btnCinco.addEventListener()
+    })
+})
+
+
+
